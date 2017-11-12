@@ -47,12 +47,12 @@ function addMaterialToTruck(i, color, name, un_num, description, category, divis
         i + '"><p class="un-num">' +
         un_num +
         '<span class="pull-right">';
-    if (un_num == "UN-2067") {
-        chem = chem + '<i class="fa fa-exclamation-triangle warning" aria-hidden="true"></i>';
-    } 
-    else if (un_num == "UN-1916") {
-       chem = chem + '<i class="fa fa-exclamation-triangle alert" aria-hidden="true"></i>';   
-    }
+//    if (un_num == "UN-2067") {
+//        chem = chem + '<i class="fa fa-exclamation-triangle warning" aria-hidden="true"></i>';
+//    } 
+//    else if (un_num == "UN-1916") {
+//       chem = chem + '<i class="fa fa-exclamation-triangle alert" aria-hidden="true"></i>';   
+//    }
     chem = chem + '<i class="fa fa-chevron-down" aria-hidden="true"></i></span></p><p class="small">' + 
         name + 
         '</p></a>' +
@@ -83,6 +83,7 @@ function addMaterialToTruck(i, color, name, un_num, description, category, divis
 
 $(document).ready(function () {
     var count = 1;
+    var showplacheader = false;
     var json = JSON.parse(testcases);
     var availabletestchemicals = [];
     for (var i = 0; i < 4; i++) {
@@ -96,12 +97,22 @@ $(document).ready(function () {
                 //alert(ui.item.value);
                 if (v.UNnumber == ui.item.value.substring(0, 7)) {
                     addMaterialToTruck(count, v.color, v.name, v.UNnumber, v.desc, v.Category, v.Division);
+                    showplacheader = true;
                     $('#removeitem' + count).click(function() {
                         $('#chemitem' + count).remove();
                         $('#item' + count).remove();
                     }); 
                     count++;
-
+                    
+                    if (showplacheader == true){
+                        $('#plactitle').removeClass('hidden');
+                        $('#placline').removeClass("hidden");
+                    }
+                    else {
+                        $('#plactitle').addClass('hidden');
+                        $('#placline').addClass("hidden");
+                    }
+                    
                     if (ui.item.value.substring(0, 7) == "UN-1969") {
                         $('#flam2').removeClass('hidden');
                     } else if (ui.item.value.substring(0, 7) == "UN-2529") {
