@@ -285,8 +285,11 @@ footer {
     margin-top: 40px;
     color: #888;
     font-size: 13px;
-    position: relative;
+    position: absolute;
     bottom: 0;
+    width: 95%;
+    margin: 40px, auto, 20px;
+    display: block;
 }
 
 
