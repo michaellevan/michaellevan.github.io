@@ -45,14 +45,15 @@ function addMaterialToTruck(i, color, name, un_num, description, category, divis
         '" role="button" data-toggle="collapse" href="#item' + 
         i + '" aria-expanded="false" aria-controls="item' + 
         i + '"><p class="un-num">' +
-        un_num +
-        '<span class="pull-right">';
-//    if (un_num == "UN-2067") {
-//        chem = chem + '<i class="fa fa-exclamation-triangle warning" aria-hidden="true"></i>';
-//    } 
-//    else if (un_num == "UN-1916") {
-//       chem = chem + '<i class="fa fa-exclamation-triangle alert" aria-hidden="true"></i>';   
-//    }
+        un_num + " ";
+    if (un_num == "UN-2067") {
+        chem = chem + '<i class="fa fa-minus" aria-hidden="true"></i><b> Action Needed </b><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>';
+    } 
+    else if (un_num == "UN-1916") {
+       chem = chem + '<i class="fa fa-minus" aria-hidden="true"></i><b> Unallowed </b><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>';   
+    }
+    chem = chem + '<span class="pull-right">';
+
     chem = chem + '<i class="fa fa-chevron-down" aria-hidden="true"></i></span></p><p class="small">' + 
         name + 
         '</p></a>' +
@@ -63,12 +64,12 @@ function addMaterialToTruck(i, color, name, un_num, description, category, divis
         division +'</p><p class="category"><strong>Description:</strong> ' + 
         description +
         '</p><a href="content-page.html" class="fullInfo">View All Info</a></div>';
-    if (un_num == "UN-2067" || un_num == "UN-1916") {
+    if (un_num == "UN-2067") {
         chem = chem + '<a role="button" data-toggle="collapse" href="#item'+ 
             i +
             '" aria-expanded="false" aria-controls="item' + 
             i +
-            '" data-toggle="collapse"><p class="circle"><i class="fa fa-circle-thin  fa-2x" aria-hidden="true"></i><span class="resolve">MARK ISSUE RESOLVED</span></p></a>';
+            '" data-toggle="collapse"><p class="circle"><i class="fa fa-circle-thin  fa-2x" aria-hidden="true"></i><span class="resolve">MARK ITEMS AS SEPARATED</span></p></a>';
     }
     chem = chem + '<a role="button" id="removeitem' +
                 i +
