@@ -61,7 +61,7 @@ function addMaterialToTruck(i, color, name, un_num, description, category, divis
         i + '"><div class="well">' +
         '<div class="info">';
     if (un_num == "UN-2067") {
-	chem = chem + '<h4 style="color: red">This item needs to be separated from UN-1969 (Butane) by atleast 8 feet.</h4><p class="category"><strong>Category:</strong> '
+	chem = chem + '<h4 style="color: red">This item needs to be separated from UN-1969 (Butane) by at least 8 feet.</h4><p class="category"><strong>Category:</strong> '
     } 
     else if (un_num == "UN-1916") {
 	chem = chem + '<h4 style="color: red">This item cannot be placed on the same load as UN-2529 (Isobutyric Acid).</h4><p class="category"><strong>Category:</strong> '
