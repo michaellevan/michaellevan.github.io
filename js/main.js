@@ -71,11 +71,11 @@ function addMaterialToTruck(i, color, name, un_num, description, category, divis
         description +
         '</p><a href="content-page.html" class="fullInfo">View All Info</a></div>';
     if (un_num == "UN-2067") {
-        chem = chem + '<a role="button" data-toggle="collapse" href="#item'+ 
+        chem = chem + '<div><a id="separatebutton" role="button" data-toggle="collapse" href="#item'+ 
             i +
             '" aria-expanded="false" aria-controls="item' + 
             i +
-            '" data-toggle="collapse"><p class="circle"><i class="fa fa-circle-thin  fa-2x" aria-hidden="true"></i><span class="resolve">MARK ITEMS AS SEPARATED</span></p></a>';
+            '" data-toggle="collapse"><p class="circle"><i class="fa fa-circle-thin  fa-2x" aria-hidden="true"></i><span class="resolve">MARK ITEMS AS SEPARATED</span></p></a></div>';
     }
     chem = chem + '<a role="button" id="removeitem' +
                 i +
@@ -86,6 +86,11 @@ function addMaterialToTruck(i, color, name, un_num, description, category, divis
                 '" data-toggle="collapse"><p class="circle"><i class="fa fa-circle-thin  fa-2x" aria-hidden="true"></i><span class="resolve">REMOVE ITEM</span></p></a></div></div>';
 
     $('#chemlocation').append(chem);
+    $('#separatebutton').click(function() {
+	$('#chemitem1').removeClass('yellow');
+    });
+
+
 }
 
 $(document).ready(function () {
@@ -96,6 +101,7 @@ $(document).ready(function () {
     for (var i = 0; i < 4; i++) {
         availabletestchemicals.push(json.Chemicals[i].UNnumber + ' - ' + json.Chemicals[i].name);
     }
+
     $('#exampleInputAmount').autocomplete({
         source: availabletestchemicals,
         select: function (event, ui) {
